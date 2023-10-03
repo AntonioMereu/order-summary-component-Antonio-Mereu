@@ -3,6 +3,7 @@
   --pale-blue: hsl(225, 100%, 94%);
   --bright-blue: hsl(245, 75%, 52%);
   --shadow-main: hsl(232, 70%, 83%);
+  --active-state: hsl(248, 81%, 66%);
 
   /* Neutral */
   --very-pale-blue: hsl(225, 100%, 98%);
@@ -37,82 +38,104 @@ main {
 }
 
 img {
-    border-top-left-radius: var(--radius);
-    border-top-right-radius: var(--radius);
-    object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  object-fit: cover;
 }
 
 .container {
-    padding: 25px;
+  padding: 25px;
 }
 
 h1 {
-    font-size: 1.36rem;
-    font-weight: 900;
-    margin-top: 8px;
+  font-size: 1.36rem;
+  font-weight: 900;
+  margin-block-start: 8px;
+  color: var(--dark-blue);
 }
 
 .container > p {
-    font-size: 16px;
-    line-height: 25px;
-    color: var(--desaturated-blue);
+  font-size: 16px;
+  line-height: 25px;
+  color: var(--desaturated-blue);
 }
 
-.container > p:last-of-type {
-    font-weight: 900;
-    margin-block: 22px 5px;
+.container > a {
+  display: inline-block;
+  font-weight: 900;
+  margin-block: 22px 5px;
+  color: var(--desaturated-blue);
+  text-decoration: none;
+}
+
+.container > a:active {
+  color: var(--dark-blue);
 }
 
 .billing-plan {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--very-pale-blue);
-    border-radius:15px;
-    padding: 15px;
-    margin-block: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--very-pale-blue);
+  border-radius: 15px;
+  padding: 15px;
+  margin-block: 20px;
 }
 
 .billing-plan * {
-    margin: 0;
+  margin: 0;
 }
 
-.billing-plan > p {
-    font-size: .85rem;
-    font-weight: 700;
-    text-decoration: underline;
-    color: var(--bright-blue);
+.billing-plan > a {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: underline;
+  color: var(--bright-blue);
 }
 
-.plan-price {
-    margin-inline-start: -25px;
+.billing-plan > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .plan-price h3 {
-    font-size: .9rem;
-    font-weight: 900;
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: var(--dark-blue);
 }
 
 .plan-price p {
-    font-size: .9rem;
-    color: var(--desaturated-blue);
-    /* margin-top: 10px; */
+  font-size: 0.9rem;
+  color: var(--desaturated-blue);
+}
+
+.billing-plan a:active {
+  color: var(--active-state);
+  text-decoration: none;
 }
 
 button {
-    width: 100%;
-    background-color: var(--bright-blue);
-    border: none;
-    border-radius: 10px;
-    color: white;
-    height: 48px;
-    font-size: .95rem;
-    font-weight: 900;
-    box-shadow: 0px 15px 30px var(--shadow-main);
+  width: 100%;
+  background-color: var(--bright-blue);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 48px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  box-shadow: 0px 15px 30px var(--shadow-main);
 }
 
+button:hover {
+  cursor: pointer;
+}
 
-.attribution {
+button:active {
+  background-color: var(--active-state);
+}
+
+footer {
   position: absolute;
   bottom: 0;
   padding-block-end: 10px;
@@ -121,6 +144,65 @@ button {
   text-align: center;
 }
 
-.attribution a {
+footer a {
   color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 35em) {
+  h1 {
+    font-size: 1.75rem;
+    margin-block-start: 4px;
+  }
+
+  .container {
+    padding: 42px 50px;
+  }
+
+  .container > a {
+    margin-block: 16px;
+  }
+
+  .billing-plan {
+    padding: 25px;
+  }
+
+  .plan-price h3 {
+    font-size: 1rem;
+  }
+
+  .plan-price p {
+    font-size: 1rem;
+    margin-block-start: 5px;
+  }
+
+  button {
+    margin-block: 14px;
+    height: 53px;
+  }
+}
+
+@media (max-height: 50em) {
+  main > img {
+    height: 24vh;
+  }
+
+  .container {
+    padding: 30px;
+  }
+
+  .billing-plan {
+    padding: 10px;
+  }
+
+  .plan-price h3 {
+    font-size: 0.85rem;
+  }
+
+  .plan-price p {
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    margin: 0;
+  }
 }
